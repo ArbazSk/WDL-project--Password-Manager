@@ -34,12 +34,14 @@ background-color: #232323;
 }
 
 footer{
+  position: relative;
+  /* top: 100%; */
   background-color: #232323;
   color: #ededed;
   text-align: center;
   padding: 5px;
-  margin-top: 30%;
-  position: relative;
+  margin-top: 23%;
+
 }
 footer p{
   font-size: 12pt;
@@ -133,7 +135,7 @@ color: white;
 }
 
 main h2{
-  position: relative;
+  /* position: relative; */
   top: 100px;
   text-align: center;
 }
@@ -228,6 +230,7 @@ main h2{
   height: 100%;
   background-image: url("../images/image3.jpg");
   background-size: contain;
+  font-stretch: expanded;
   background-repeat: no-repeat;
   opacity: 0.8;
 }
@@ -248,7 +251,7 @@ main div.list div.content{
   }
 
   div.needof{
-    margin-top:120px; 
+    margin-top:120px;
   }
 
 }
@@ -260,11 +263,10 @@ main div.list div.content{
   }
 
   div.needof{
-    margin-top:90px; 
+    margin-top:90px;
   }
 
 }
-
 
 @media(max-width:500px){
   div.features,div.needof{
@@ -279,8 +281,15 @@ main div.list div.content{
   }
 
   div.needof{
-    margin-top:120px; 
+    margin-top:120px;
   }
+  div.title h3{
+    display: none;
+  }
+  div.title h1{
+    padding-top: 20%;
+  }
+  
+
 
 }
-

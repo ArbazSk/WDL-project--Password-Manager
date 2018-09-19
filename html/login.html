@@ -11,26 +11,20 @@
     <div class="navbar">
       <nav>
         <ul>
-<<<<<<< HEAD
-          <li><a href="home.html">Home</a></li>
-          <!-- <li><a href="contact.html">Contact</a></li> -->
-          <li><a href="index.html">LogIn</a></li>
-=======
           <li><a href="index.html">Home</a></li>
           <!-- <li><a href="contact.html">Contact</a></li> -->
           <li><a href="login.html">LogIn</a></li>
->>>>>>> 5508072f2cb3aa261e548ab98e46e7d6e687041d
         </ul>
       </nav>
     </div>
   </header>
   <main>
     <div class="login">
-      <form action="loginCheck.php" method="POST">
+      <form action="../php/loginCheck.php" method="POST">
         <h2><i class="fas fa-key"></i>  Password Manager</h2>
-        <input type="text" value="" placeholder="Username" required="required"/><br>
-        <input type="password" value="" placeholder="Password" required="required"/><br>
-        <input type="submit" value="Login" formaction="sitelist.html" method="post"/>
+        <input type="text" value="" name="username" placeholder="Username" required="required"/><br>
+        <input type="password" value="" name="pass" placeholder="Password" required="required"/><br>
+        <input type="submit" value="Login">
         <p>Don't have an Account yet?</p>
         <a href="signup.html">Sign Up</a>
       </form>
