@@ -99,6 +99,10 @@ box-shadow: 2px 2px 3px #afaaaa;
   box-shadow: 3px 3px 4px #afaaaa;
 }
 .register h2{
+  /*position: absolute;*/
+  /*top: 12%;*/
+  /*left: 50%;*/
+  /*margin-top: 0;*/
   padding: 20px;
   font-weight: bold;
 }
@@ -112,6 +116,7 @@ font-size: 12pt;
 color: #4d6da0;
 }
 .register input{
+width: 50%;
 margin: 10px;
 padding: 5px;
 border: 0px;
