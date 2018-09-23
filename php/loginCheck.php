@@ -1,12 +1,19 @@
 <?php
-require_once 'functions.php';
+include 'functions.php';
+// echo $_POST['username'];
+// echo '<br>';
+// echo $_POST['pass'];
+// echo '<br>';
 
-$usr = $_POST['username'];
-$pass = $_POST['pass'];
-$query = "SELECT * FROM master_account WHERE M_USERNAME = $usr AND M_PASSWORD = $pass";
-$result = MyquerySelect($query);
-if(!$result){
-  echo "No Valid User.";
+if($_POST){
+ $user = $_POST['username'];
+ $pass = $_POST['pass'];
+
+   if(!empty($user)&&!empty($pass)){
+    // $query="Select * From user" ;
+    $result =  MyquerySelect($query);
+
+   }
 }
-var_dump($result);
+
 ?>

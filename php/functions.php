@@ -9,7 +9,7 @@ function connect_db(){
     global $link;
     $link = mysqli_connect($db_host,$db_user,$db_password,$db_name) or die(mysqli_error($link));
 
-    mysqli_select_db($link,$db_name) or die(mysqli_error($link));
+    // mysqli_select_db($link,$db_name) or die(mysqli_error($link));
 }
 function close_db(){
   global $link;
@@ -24,9 +24,15 @@ function MyquerySelect($query){
         echo 'Somthing went wrong '.'<br>'.mysqli_error($link);
         die();
     }
-    mysqli_close();
+    mysqli_close($link);
     return $result;
 }
+
+function fix_name($name){
+	$name=trim($name);
+	$name=ucfirst($name);
+	return $name;
+} 
 
 
 ?>

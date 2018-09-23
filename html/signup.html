@@ -10,29 +10,23 @@
     <div class="navbar">
       <nav>
         <ul>
-<<<<<<< HEAD
-          <li><a href="home.html">Home</a></li>
-          <!-- <li><a href="contact.html">Contact</a></li> -->
-          <li><a href="index.html">LogIn</a></li>
-=======
           <li><a href="index.html">Home</a></li>
           <!-- <li><a href="contact.html">Contact</a></li> -->
           <li><a href="login.html">LogIn</a></li>
->>>>>>> 5508072f2cb3aa261e548ab98e46e7d6e687041d
         </ul>
       </nav>
     </div>
   </header>
   <main>
     <div class="register">
-      <form>
+      <form action="../php/signupCheck.php" method="post">
         <h2>Sign Up</h2>
-        <input type="text" value="" placeholder="Full Name" required="required"/><br>
-        <input type="text" value="" placeholder="Account Username" required="required"/><br>
-        <input type="password" value="" placeholder="Master Password" required="required"/><br>
-        <input type="password" value="" placeholder="Confirm Password" required="required"/><br>
-        <input type="email" value="" placeholder="Email" required="required"/><br>
-        <input type="submit" formaction="index.html" value="Sign Up"/><br>
+        <input type="text" name="fullName" value="" placeholder="Full Name" required="required"><br>
+        <input type="text" name="Musername" value="" placeholder="Account Username" required="required"><br>
+        <input type="password" name="Mpassword" value="" placeholder="Master Password" required="required"><br>
+        <input type="password" name="Mconpassword" value="" placeholder="Confirm Password" required="required"><br>
+        <input type="email" name="Memail" value="" placeholder="Email" required="required"/><br>
+        <input type="submit"  value="Sign Up"/><br>
       </form>
     </div>
   </main>
