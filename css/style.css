@@ -117,14 +117,14 @@ text-decoration: none;
 font-size: 12pt;
 color: #4d6da0;
 }
-.register input{
+.register input , .newsite input{
 width: 50%;
 margin: 10px;
 padding: 5px;
 border: 0px;
 border-bottom: 1px solid black;
 }
-.register input[type="submit"]{
+.register input[type="submit"],.newsite input[type="submit"] {
 width: 5em;
 background-color: #3c7573;
 color: white;
@@ -133,6 +133,7 @@ color: white;
 opacity: 0.66;
 color: white;
 }
+
 
 main h2{
   /* position: relative; */
