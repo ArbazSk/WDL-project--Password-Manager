@@ -1,6 +1,7 @@
 <!DOCTYPE html>
+<?php session_start(); ?>
   <head>
-      <title>Log In-Password Manager (temporary name)</title>
+      <title>Log In-Password Manager</title>
       <link rel="stylesheet" href="../css/style.css"/>
       <!-- <link rel="stylesheet" href="/css/style.css"/> -->
       <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
@@ -11,9 +12,13 @@
     <div class="navbar">
       <nav>
         <ul>
-          <li><a href="index.html">Home</a></li>
+          <li><a href="index.php">Home</a></li>
           <!-- <li><a href="contact.html">Contact</a></li> -->
-          <li><span id="loggedIn"><a href="login.html">LogIn</a></span></li>
+          <?php if($_SESSION['LoggedIN'] == "yes"): echo $_SESSION['LoggedIN']; ?>
+          <li><span id="loggedIn"><a href="login.php">LogOUt</a></span></li>
+          <?php else : ?>
+          <li><span id="loggedIn"><a href="login.php">LogIn</a></span></li>
+          <?php endif ?>
         </ul>
       </nav>
     </div>
@@ -22,11 +27,12 @@
     <div class="login">
       <form action="../php/loginCheck.php" method="POST">
         <h2><i class="fas fa-key"></i>  Password Manager</h2>
-        <input type="text" value="" name="username" placeholder="Username" required="required"/><br>
-        <input type="password" value="" name="pass" placeholder="Password" required="required"/><br>
+        <input type="text" value="" name="username" minlength="5" placeholder="Username" required="required"/><br>
+        <input type="password" value="" name="pass" minlength="5" placeholder="Password" required="required"/><br>
         <input type="submit" value="Login">
+        <input type="hidden" name="LogedIN" value="no">
         <p>Don't have an Account yet?</p>
-        <a href="signup.html">Sign Up</a>
+        <a href="signup.php">Sign Up</a>
       </form>
     </div>
   </main>

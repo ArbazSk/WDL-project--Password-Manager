@@ -1,4 +1,5 @@
 <?php
+session_start();
 include 'functions.php';
 
 if($_POST){
@@ -9,12 +10,14 @@ if($_POST){
     if(!empty($user)&&!empty($pass)){
       $userFrom_db = RetriveUsername($user);
       if($userFrom_db['M_USERNAME'] == $user && $userFrom_db['M_PASSWORD'] == $pass ){
-        echo "Welcome ".$userFrom_db['M_NAME'].'<br>';
-        header('Refresh:1 , url = ../html/sitelist.html');
+        $_SESSION['CurrentUSER'] = $user;
+        $_SESSION['M_ID'] = $userFrom_db['M_ID'];
+        $_SESSION['loggedIN'] = "yes";
+        header('Refresh:0 , url = ../html/sitelist.php');
       }
       else{
         echo "<script> alert('User does not exist. Create an Account '); </script>";
-        header('Refresh:0 , url= ../html/signup.html');
+        header('Refresh:0 , url= ../html/signup.php');
       }
   
     }

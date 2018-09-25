@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<?php session_start(); ?>
   <head>
       <title>Log In-Password Manager (temporary name)</title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,9 +14,14 @@
     <div class="navbar">
       <nav>
         <ul>
-          <li><a href="index.html">Home</a></li>
+          <li><a href="index.php">Home</a></li>
           <!-- <li><a href="contact.html">Contact</a></li> -->
-          <li><a href="login.html">LogIn</a></li>
+          <?php if($_SESSION['LoggedIN'] == "yes"): ?>
+          <li><span id="loggedIN"><a href="index.php">LogOUt</a></span></li>
+          <!-- <?php //$_SESSION['LoggedIN'] = "no"; session_destroy(); ?> -->
+          <?php else : ?>
+          <li><span id="loggedIN"><a href="login.php">LogIn</a></span></li>
+          <?php endif ?>
         </ul>
       </nav>
     </div>

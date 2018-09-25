@@ -10,7 +10,7 @@
     <div class="navbar">
       <nav>
         <ul>
-          <li><a href="index.html">Home</a></li>
+          <li><a href="index.php">Home</a></li>
           <!-- <li><a href="contact.html">Contact</a></li> -->
           <li><a href="login.html">LogIn</a></li>
         </ul>
@@ -21,12 +21,12 @@
     <div class="register">
       <form action="../php/signupCheck.php" method="post">
         <h2>Sign Up</h2>
-        <input type="text" name="fullName" id="FullName" value="" placeholder="Full Name" required="required"><br>
+        <input type="text" name="fullName" minlength="5" id="FullName" value="" placeholder="Full Name" required="required"><br>
         <span id="fullNameErr"></span>
-        <input type="text" name="Musername" id="username" value="" placeholder="Account Username" required="required"><br>
+        <input type="text" name="Musername" minlength="5" id="username" value="" placeholder="Account Username" required="required"><br>
         <span id="usernameError"></span>
-        <input type="password" name="Mpassword" class="pass" id="passw" value="" placeholder="Master Password" required="required"><br>
-        <input type="password" name="Mconpassword" class="pass" id="Cpassw" value="" placeholder="Confirm Password" required="required"><br>
+        <input type="password" name="Mpassword" minlength="5" class="pass" id="passw" value="" placeholder="Master Password" required="required"><br>
+        <input type="password" name="Mconpassword" minlength="5" class="pass" id="Cpassw" value="" placeholder="Confirm Password" required="required"><br>
         <!-- <span id="passwordError"></span><br> -->
         <input type="email" name="Memail" id="email" value="" placeholder="Email" required="required"/><br>
         <input type="submit"  value="Sign Up"/><br>

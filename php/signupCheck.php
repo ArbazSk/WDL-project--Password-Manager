@@ -12,7 +12,7 @@ if($_POST){
    if(!empty($fullname)&&!empty($Musername)&&!empty($Mpassword)&&!empty($Mconpassword)&&!empty($Memail)){
      if($Mpassword != $Mconpassword){
        echo " <p>please enter corect password</p>" ;
-       header('Refresh:2, url= ../html/signup.html');
+       header('Refresh:2, url= ../html/signup.php');
      }
      else{
        //check if the user exist or not
@@ -24,7 +24,7 @@ if($_POST){
         $query = "Insert into master_account(M_NAME,M_USERNAME,M_PASSWORD) values('$fullname','$Musername','$Mpassword')";
         $result = MyquerySelect($query);
         if($result) echo "successfully inserted"; else echo "Error occured".mysqli_error();
-        header('Refresh:1 , url = ../html/sitelist.html');
+        header('Refresh:1 , url = ../html/sitelist.php');
 
        }
 
