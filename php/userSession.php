@@ -39,7 +39,7 @@ session_start();
         <input id="searchbtn" type="submit" value="Search"><br>
       </form>
       <div class="content">
-
+        <?php echo $_SESSION['LoggedIN']; ?>
       </div>
     </div>
   </main>

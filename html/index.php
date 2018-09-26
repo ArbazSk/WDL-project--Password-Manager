@@ -14,14 +14,19 @@
     <div class="navbar">
       <nav>
         <ul>
-          <li><a href="index.php">Home</a></li>
-          <!-- <li><a href="contact.html">Contact</a></li> -->
-          <?php if($_SESSION['LoggedIN'] == "yes"): ?>
-          <li><span id="loggedIN"><a href="index.php">LogOUt</a></span></li>
-          <!-- <?php //$_SESSION['LoggedIN'] = "no"; session_destroy(); ?> -->
-          <?php else : ?>
-          <li><span id="loggedIN"><a href="login.php">LogIn</a></span></li>
-          <?php endif ?>
+          <?php if(array_key_exists('LoggedIN',$_POST)): ?>
+              <li><a href="index.php">Home</a></li>
+              <!-- <li><a href="contact.html">Contact</a></li> -->
+              <?php if($_SESSION['LoggedIN'] == "yes"): ?>
+              <li><span><a href="index.php">LogOUt</a></span></li>
+              <!-- <?php //$_SESSION['LoggedIN'] = "no"; session_destroy(); ?> -->
+              <?php else : ?>
+              <li><span><a href="login.php">LogIn</a></span></li>
+              <?php endif; ?>
+          <?php else: ?>
+            <li><a href="index.php">Home</a></li>
+            <li><span><a href="login.php">LogIn</a></span></li>
+          <?php endif;?>
         </ul>
       </nav>
     </div>

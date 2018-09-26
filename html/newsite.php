@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<?php session_start(); ?>
   <head>
       <title>Add new site</title>
       <!-- <link rel="stylesheet" href="../css/style.css"/> -->
@@ -11,14 +10,9 @@
     <div class="navbar">
       <nav>
         <ul>
-          <li><a href="index.php">Home</a></li>
+          <li><a href="home.html">Home</a></li>
           <!-- <li><a href="contact.html">Contact</a></li> -->
-          <?php if($_SESSION['LoggedIN'] == "yes"): ?>
-          <li><span id="loggedIn"><a href="index.php">LogOUt</a></span></li>
-          <!-- <?php // $_SESSION['LoggedIN'] = "no"; session_destroy(); ?> -->
-          <?php else : ?>
-          <li><span id="loggedIn"><a href="login.php">LogIn</a></span></li>
-          <?php endif ?>
+          <li><a href="index.html">Logout</a></li>
         </ul>
       </nav>
     </div>

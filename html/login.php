@@ -13,12 +13,15 @@
       <nav>
         <ul>
           <li><a href="index.php">Home</a></li>
-          <!-- <li><a href="contact.html">Contact</a></li> -->
-          <?php if($_SESSION['LoggedIN'] == "yes"): echo $_SESSION['LoggedIN']; ?>
-          <li><span id="loggedIn"><a href="login.php">LogOUt</a></span></li>
-          <?php else : ?>
-          <li><span id="loggedIn"><a href="login.php">LogIn</a></span></li>
-          <?php endif ?>
+          <?php  if(array_key_exists('userLoggedin',$_POST)): ?>
+              <?php if($_SESSION['LoggedIN'] == "yes"): //echo $_SESSION['LoggedIN']; ?>
+              <li><span ><a href="login.php">LogOUt</a></span></li>
+              <?php else : ?>
+              <li><span><a href="login.php">LogIn</a></span></li>
+              <?php endif; ?>
+            <?php else: ?>
+              <li><span><a href="login.php">LogIn</a></span></li>
+              <?php endif; ?>
         </ul>
       </nav>
     </div>
@@ -30,7 +33,7 @@
         <input type="text" value="" name="username" minlength="5" placeholder="Username" required="required"/><br>
         <input type="password" value="" name="pass" minlength="5" placeholder="Password" required="required"/><br>
         <input type="submit" value="Login">
-        <input type="hidden" name="LogedIN" value="no">
+        <input type="hidden" name="userLoggedin" value="no">
         <p>Don't have an Account yet?</p>
         <a href="signup.php">Sign Up</a>
       </form>
