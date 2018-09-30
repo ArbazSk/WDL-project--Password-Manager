@@ -40,6 +40,26 @@ function RetriveUsername($name){
     return $row;
 }
 
+function destroy_session_and_data(){
+    session_start();
+    $_SESSION = array();
+    // setcookie(session_name(), '', time() - 2592000, '/');
+    session_destroy();
+    echo "destroyed";
+    sleep(10);
+}
 
+function RetriveUserdata($mid){
+    connect_db();
+    global $link;
+    $query = "select USERNAME,PASSWORD,WEBSITE_NAME,WEBSITE_URL from site_account where M_ID ='$mid'";
+    $result = mysqli_query($link,$query);
+    if(!$result){
+        echo 'Somthing went wrong '.'<br>'.mysqli_error($link);
+        die();
+    }
+    mysqli_close($link);
+    return $result;
+}
 
 ?>

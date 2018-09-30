@@ -1,7 +1,7 @@
 <!DOCTYPE html>
   <head>
       <title>Add new site</title>
-      <!-- <link rel="stylesheet" href="../css/style.css"/> -->
+      <link rel="stylesheet" href="../css/style.css"/>
       <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
   </head>
@@ -11,7 +11,6 @@
       <nav>
         <ul>
           <li><a href="home.html">Home</a></li>
-          <!-- <li><a href="contact.html">Contact</a></li> -->
           <li><a href="index.html">Logout</a></li>
         </ul>
       </nav>

@@ -25,6 +25,11 @@ padding: 10px;
 margin-left: 10px;
 display: inline-block;
 }
+/* .navbar li type['button']{
+  display: inline;  
+  width:50px;
+  height:50px;
+} */
 .navbar ul {
 list-style: none;
 }
@@ -129,6 +134,13 @@ color: white;
 .register input[type="submit"]:hover{
 opacity: 0.66;
 color: white;
+}
+
+.newsite{
+  text-align: center;
+  display: block;
+  margin: 100px 10px 10px 10px;
+  /* box-shadow: 2px 2px 3px #afaaaa; */
 }
 
 
@@ -287,7 +299,5 @@ main div.list div.content{
   div.title h1{
     padding-top: 20%;
   }
-  
-
 
 }

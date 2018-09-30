@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<?php session_start(); ?>
+<?php session_start();
+  require_once '../php/functions.php';
+?>
   <head>
       <title>Log In-Password Manager (temporary name)</title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,17 +16,15 @@
     <div class="navbar">
       <nav>
         <ul>
-          <?php if(array_key_exists('LoggedIN',$_POST)): ?>
-              <li><a href="index.php">Home</a></li>
-              <!-- <li><a href="contact.html">Contact</a></li> -->
-              <?php if($_SESSION['LoggedIN'] == "yes"): ?>
+        <li><a href="index.php">Home</a></li>
+          <?php if(array_key_exists('logIN',$_SESSION)): ?>
+              <?php if($_SESSION['logIN'] == "yes"): ?>
               <li><span><a href="index.php">LogOUt</a></span></li>
-              <!-- <?php //$_SESSION['LoggedIN'] = "no"; session_destroy(); ?> -->
+              <!-- <?php $_SESSION['logIN'] = "no"; destroy_session_and_data(); ?> -->
               <?php else : ?>
               <li><span><a href="login.php">LogIn</a></span></li>
               <?php endif; ?>
           <?php else: ?>
-            <li><a href="index.php">Home</a></li>
             <li><span><a href="login.php">LogIn</a></span></li>
           <?php endif;?>
         </ul>

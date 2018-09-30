@@ -1,5 +1,6 @@
-<!DOCTYPE html>
 <?php session_start(); ?>
+<!DOCTYPE html>
+
   <head>
       <title>Log In-Password Manager</title>
       <link rel="stylesheet" href="../css/style.css"/>
@@ -13,9 +14,10 @@
       <nav>
         <ul>
           <li><a href="index.php">Home</a></li>
-          <?php  if(array_key_exists('userLoggedin',$_POST)): ?>
-              <?php if($_SESSION['LoggedIN'] == "yes"): //echo $_SESSION['LoggedIN']; ?>
-              <li><span ><a href="login.php">LogOUt</a></span></li>
+          <?php  if(array_key_exists('LogIN',$_SESSION)): ?>
+              <?php if($_SESSION['LogIN'] == "yes"): //echo $_SESSION['LoggedIN']; ?>
+              <?php header('Location: sitelist.php')  ?>
+              <!-- <li><span ><a href="login.php">LogOUt</a></span></li> -->
               <?php else : ?>
               <li><span><a href="login.php">LogIn</a></span></li>
               <?php endif; ?>
@@ -33,10 +35,11 @@
         <input type="text" value="" name="username" minlength="5" placeholder="Username" required="required"/><br>
         <input type="password" value="" name="pass" minlength="5" placeholder="Password" required="required"/><br>
         <input type="submit" value="Login">
-        <input type="hidden" name="userLoggedin" value="no">
+        <!-- <input type="hidden" name="userLoggedin" value="no"> -->
         <p>Don't have an Account yet?</p>
         <a href="signup.php">Sign Up</a>
       </form>
+      <?php echo $_SESSION['logIN'] ; ?>
     </div>
   </main>
   <footer>
