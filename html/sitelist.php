@@ -7,56 +7,67 @@
   <!-- <link rel="stylesheet" href="/css/style.css"/> -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 </head>
-<body>
+<body class="bodybglist">
   <header>
     <div class="navbar">
       <nav>
         <ul>
-          <li><a href="index.php">Home</a></li>
-          <?php if(array_key_exists('logIN',$_SESSION)){ ?>
-                <?php  if($_SESSION['logIN'] == "yes"){           //echo $_SESSION['LoggedIN']; ?>
-                  <li><span><a href="index.php"><input type="button" value="out" onclick="destroy_session_and_data()" >  LogOUt</a></span></li>
-                  <!-- <li><span><button type="button" value="LogOUT" onclick="destroy_session_and_data()" formaction="index.php"></button></span></li> -->
-                <?php }else{ ?>
-                <?php //echo "in nav bar".$_SESSION['LogIN']; ?>
-                <li><span><a href="login.php">LogIn</a></span></li>
-                <?php } ?>
-                <?php }else{ ?>
-            <li><span><a href="login.php">LogIn</a></span></li>
+          <?php //if(array_key_exists('logIN',$_SESSION)){ ?>
+          <?php if(array_key_exists('userLoggedin',$_SESSION)){ ?>
+                <?php  if($_SESSION['userLoggedin'] == "yes"){ ?>
+                    <li><span><a href="sitelist.php?userLoggedin=yes" >SiteList</a></span></li>
+                    <li><span><a href="index.php?userLoggedin=no" >Logout</a></span></li>
+                    <?php }?>
+              <?php }else{ ?>
+            <li><span><a href="login.php>userLoggedin=no">LogIn</a></span></li>
+            <?php header('Location: index.php?userLoggedin=no');  ?>
           <?php }?>
         </ul>
+
       </nav>
     </div>
   </header>
   <main>
-      <h2>Sites</h2>
     <div class="list">
-      <form action="newsite.php" method>
-        <input type="submit"  value="+ Add New"><br>
-        <input type="search" placeholder="search my list">
-        <input id="searchbtn" type="button" value="Search"><br>
+    <h2>Sites</h2>
+      <form action="newsite.php" method="POST">
+        <input type="submit" name="submit"  value="+ Add New"><br>
       </form>
-      <div class="content">
-        <!-- <div id="name"><?php //echo  $_SESSION['CurrentUSER']; ?></div>
-        <div id="website"><?php // print_r($_SESSION['LogIN']); ?></div>
-        <div id="url"></div>
-        <div id="username"><?php //echo  $_SESSION['M_ID']; ?></div>
-        <div id="password"></div> -->
+      <form method="GET">
+      <input id="sear" type="search" name="search" placeholder="search my list">
+      <input id="searchbtn" type="submit" formaction="sitelist.php"  value="Search"><br>
+      </form>
+      
 
-       <?php $result = RetriveUserdata(1) ; //$_SESSION['M_ID'] ?> 
-       <?php while($row = mysqli_fetch_array($result)): ?>
-          <div id="username"><?php echo $row['USERNAME']; ?></div>
-          <div id="password"><?php echo $row['PASSWORD']; ?></div>
-          <div id="website"><?php echo $row['WEBSITE_NAME']; ?></div>
-          <div id="url"><?php echo $row['WEBSITE_URL']; ?></div>
-        <?php endwhile;?>
-      </div>
     </div>
+    <div class="content">
+
+      <?php $result = RetriveUserdata($_SESSION['M_ID']) ; ?>
+       <?php
+          if(mysqli_num_rows($result) == 0){
+            echo '<br>'."<span id='message'>You have not saved any sites.</span>";
+          }else{
+       ?>
+       <?php while($row = mysqli_fetch_array($result)): ?>
+          <div id="website" class="contentDiv"><span class="contentLable">Website Name:</span>  <span class="contentValue"><?php echo $row['WEBSITE_NAME']; ?></span></div>
+          <div id="url" class="contentDiv"><span class="contentLable">Website Url:</span> <span class="contentValue"> <?php echo $row['WEBSITE_URL']; ?></span></div>
+          <div id="username" class="contentDiv"><span class="contentLable">Username:</span>  <span class="contentValue"><?php echo  $row['USERNAME']; ?></span></div>
+          <div id="password" class="contentDiv"><span class="contentLable">Password:</span> <span class="contentValue"> <?php echo $row['PASSWORD']; ?></span></div>          
+          <div id="note" class="contentDiv"><span class="contentLable">Notes:</span> <span class="contentValue"><?php echo $row['NOTES']; ?></span> </div>
+          
+          <div class="contentDiv" id="deletedata"><!-- <button>Delete</button> --></div> 
+        <?php endwhile;?>
+          <?php } ?>
+      </div>
+    
   </main>
   <footer>
     <div>
         <p>2018 &copy; All Rights Reserved</p>
     </div>
   </footer>
+  <script src="../js/jquery-3.3.1.min.js"></script>
+  <script src="../js/search.js"></script>
+
 </body>
 </html>

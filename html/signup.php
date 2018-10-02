@@ -5,13 +5,12 @@
     <!-- <link rel="stylesheet" href="/css/style.css"/> -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
   </head>
-<body>
+<body class="bodybgsignup">
   <header>
     <div class="navbar">
       <nav>
         <ul>
           <li><a href="index.php">Home</a></li>
-          <!-- <li><a href="contact.html">Contact</a></li> -->
           <li><a href="login.php">LogIn</a></li>
         </ul>
       </nav>

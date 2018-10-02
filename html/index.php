@@ -3,7 +3,7 @@
   require_once '../php/functions.php';
 ?>
   <head>
-      <title>Log In-Password Manager (temporary name)</title>
+      <title>Log In-Password Manager (temporary name)</title>     
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <link rel="stylesheet" href="../css/style.css"/>
       <!-- <link rel="stylesheet" href="/css/style.css"/> -->
@@ -17,12 +17,18 @@
       <nav>
         <ul>
         <li><a href="index.php">Home</a></li>
-          <?php if(array_key_exists('logIN',$_SESSION)): ?>
-              <?php if($_SESSION['logIN'] == "yes"): ?>
-              <li><span><a href="index.php">LogOUt</a></span></li>
-              <!-- <?php $_SESSION['logIN'] = "no"; destroy_session_and_data(); ?> -->
+        <?php if(isset($_GET['userLoggedin'])){
+          if($_GET['userLoggedin'] == "no"){
+            destroy_session_and_data();
+          }
+        }
+         ?>
+          <?php if(array_key_exists('userLoggedin',$_SESSION)): ?>
+              <?php if($_SESSION['userLoggedin'] == "yes"): ?>
+              <li><span><a href="index.php?userLoggedin=no">Logout</a></span></li>
+              <li><span><a href="sitelist.php?userLoggedin=yes">Sitelist</a></span></li>
               <?php else : ?>
-              <li><span><a href="login.php">LogIn</a></span></li>
+              <li><span><a href="login.php?userLoggedin=no">LogIn</a></span></li>
               <?php endif; ?>
           <?php else: ?>
             <li><span><a href="login.php">LogIn</a></span></li>
@@ -38,6 +44,12 @@
           <h1>Welcome to Unbreak</h1>
           <h3>Online password manager for your website accounts</h3>
         </div>
+        <div class="whatis">
+          <h4>What is a password manager?</h4>
+          <p>As the name suggests, a password manager is an app - essentially</p>
+          <p>a digital safe that keeps all your passwords secure and helps you</p>
+            <p>create different strong passwords for each one of your accounts.</p>
+      </div>
         <div class="needof">
           <p></p>
           <h4>Need of a password manager</h4>
@@ -58,6 +70,10 @@
             <li>Intuitive interface and ease of use.</li>
           </ul>
         </div>
+        <div class="tryit">
+          <h4>Try Unbreak for Free</h4>
+          <p><a href="signup.php">Sign Up</a></p>
+      </div>
       </div>
 
     </div>

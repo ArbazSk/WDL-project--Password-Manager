@@ -24,16 +24,14 @@ if($_POST){
         $query = "Insert into master_account(M_NAME,M_USERNAME,M_PASSWORD) values('$fullname','$Musername','$Mpassword')";
         $result = MyquerySelect($query);
         if($result) echo "successfully inserted"; else echo "Error occured".mysqli_error();
-        header('Refresh:1 , url = ../html/sitelist.php');
+        header('Refresh:1 , url = ../html/login.php');
 
        }
-
      }
-     
-
+    
    }
    else{
-     header('Refresh:0 , url= ../html/signup.html');
+     header('Refresh:0 , url= ../html/signup.php');
    }
   }
 ?>
