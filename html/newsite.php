@@ -18,6 +18,7 @@
         <ul>
           <li><a href="sitelist.php?userLoggedin=yes">SiteList</a></li>
           <li><a href="index.php?userLoggedin=no">Logout</a></li>
+          <li><span><a href="#"><?php echo $_SESSION['CurrentUSER']; ?></a></span></li>
         </ul>
       </nav>
     </div>

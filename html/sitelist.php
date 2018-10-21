@@ -17,6 +17,7 @@
                 <?php  if($_SESSION['userLoggedin'] == "yes"){ ?>
                     <li><span><a href="sitelist.php?userLoggedin=yes" >SiteList</a></span></li>
                     <li><span><a href="index.php?userLoggedin=no" >Logout</a></span></li>
+                    <li><span><a href="#"><?php echo $_SESSION['CurrentUSER']; ?></a></span></li>
                     <?php }?>
               <?php }else{ ?>
             <li><span><a href="login.php>userLoggedin=no">LogIn</a></span></li>
@@ -37,7 +38,7 @@
       <input id="sear" type="search" name="search" placeholder="search my list">
       <input id="searchbtn" type="submit" formaction="sitelist.php"  value="Search"><br>
       </form>
-      
+
 
     </div>
     <div class="content">
@@ -52,14 +53,15 @@
           <div id="website" class="contentDiv"><span class="contentLable">Website Name:</span>  <span class="contentValue"><?php echo $row['WEBSITE_NAME']; ?></span></div>
           <div id="url" class="contentDiv"><span class="contentLable">Website Url:</span> <span class="contentValue"> <?php echo $row['WEBSITE_URL']; ?></span></div>
           <div id="username" class="contentDiv"><span class="contentLable">Username:</span>  <span class="contentValue"><?php echo  $row['USERNAME']; ?></span></div>
-          <div id="password" class="contentDiv"><span class="contentLable">Password:</span> <span class="contentValue"> <?php echo $row['PASSWORD']; ?></span></div>          
+          <div id="password" class="contentDiv"><span class="contentLable">Password:</span> <span class="contentValue"> <?php echo $row['PASSWORD']; ?></span></div>
           <div id="note" class="contentDiv"><span class="contentLable">Notes:</span> <span class="contentValue"><?php echo $row['NOTES']; ?></span> </div>
-          
-          <div class="contentDiv" id="deletedata"><!-- <button>Delete</button> --></div> 
+          <div class="contentDiv" id="deletedata"> <a href="../php/delete.php?del=<?php echo $row['S_ID']; ?>"><button>Delete</button></a> </div>
+          <div class="contentDiv" id="updatedata"> <a href="../php/update.php?upd=<?php echo $row['S_ID']; ?>"><button>Update</button> </a></div>
+
         <?php endwhile;?>
           <?php } ?>
       </div>
-    
+
   </main>
   <footer>
     <div>

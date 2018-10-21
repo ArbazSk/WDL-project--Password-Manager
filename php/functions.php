@@ -4,7 +4,7 @@ function fix_name($name){
 	$name=trim($name);
 	$name=ucfirst($name);
 	return $name;
-} 
+}
 
 $link=null;
 function connect_db(){
@@ -23,7 +23,7 @@ function MyquerySelect($query){
     connect_db();
     global $link;
     $result = mysqli_query($link,$query);
-    
+
     if(!$result){
         echo 'Somthing went wrong '.'<br>'.mysqli_error($link);
         die();
@@ -46,11 +46,11 @@ function destroy_session_and_data(){
     session_destroy();
 
 }
-//function for Retrival user data to display the content 
+//function for Retrival user data to display the content
 function RetriveUserdata($mid){
     connect_db();
     global $link;
-    $query = "select USERNAME,PASSWORD,WEBSITE_NAME,WEBSITE_URL,NOTES from site_account where M_ID ='$mid' order by WEBSITE_NAME";
+    $query = "select S_ID, USERNAME,PASSWORD,WEBSITE_NAME,WEBSITE_URL,NOTES from site_account where M_ID ='$mid' order by WEBSITE_NAME";
     $result = mysqli_query($link,$query);
     if(!$result){
         echo 'Somthing went wrong '.'<br>'.mysqli_error($link);

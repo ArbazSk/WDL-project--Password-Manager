@@ -40,9 +40,9 @@
 // else{
 //     echo "cannot destroyed";
 // }
-// echo "1a023ad5086a6ff19b2ee1423e11f288ce269a63c3f242cce9508597e79abf87adec203195833a6586af89e29f1f25db996cfd6eac636351d1986471c2104086 ".'<br>';
-// $salt ='!@#122+_';
-// echo hash('sha512',$salt.'rehan123'.$salt);
+echo "e938e3bc6b63c5fe91e4b28b9bcac682e190707781889737f0a1a6bc2d76ea75ee1445da9768f58e6a7f30a02e812cba9c4810e8d4a2602b94c10da09467e43".'<br>';
+$salt ='!@#122+_';
+echo hash('sha512',$salt.'arbaz123'.$salt);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -69,7 +69,7 @@ else {
 
 
 
-//<?php
+<?php
           // if($_GET){
           //   $ser = trim(strip_tags(strtolower($_GET['search'])));
           //    $searchData = SearchFromData($ser,$_SESSION['M_ID']);

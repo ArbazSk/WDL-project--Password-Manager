@@ -19,7 +19,8 @@ if($_POST){
        $retriveUsername = RetriveUsername($Musername);  //retrive username from master_account
        if(isset($retriveUsername['M_USERNAME'])){
          echo "Name is alredy taken ".'<br>';
-       } 
+         header('Refresh:2, url= ../html/signup.php');
+       }
        else{
         $query = "Insert into master_account(M_NAME,M_USERNAME,M_PASSWORD) values('$fullname','$Musername','$Mpassword')";
         $result = MyquerySelect($query);
@@ -28,7 +29,7 @@ if($_POST){
 
        }
      }
-    
+
    }
    else{
      header('Refresh:0 , url= ../html/signup.php');

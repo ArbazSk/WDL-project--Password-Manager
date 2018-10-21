@@ -9,27 +9,27 @@ if($_POST){
     $password = $_POST['Password'];
     $notes = $_POST['notes'];
     $curentSession_MID = $_SESSION['M_ID'];
-  
+
     if(!empty($Websitename)&&!empty($Websiteurl)&&!empty($username)&&!empty($password)){
-        if($_SESSION['logIN'] == "yes"){
-            $query = "Insert into site_account(USERNAME,PASSWORD,WEBSITE_NAME,WEBSITE_URL,M_ID,NOTES) values('$username','$password','$Websitename','$Websiteurl','$curentSession_MID','$notes')";
-            $result = MyquerySelect($query);
-            if($result){
-                echo "successfully inserted";
-            }
-            else{
-                echo "Error occured".mysqli_error();
-            }
-            header('Refresh:1 , url = ../html/sitelist.php');
+      if($_SESSION['logIN'] == "yes"){
+        $query = "Insert into  site_account(USERNAME,PASSWORD,WEBSITE_NAME,WEBSITE_URL,M_ID,NOTES) values('$username','$password','$Websitename','$Websiteurl','$curentSession_MID','$notes')";
+        $result = MyquerySelect($query);
+        if($result){
+          echo "successfully inserted";
         }
         else{
-            echo "NOT Logged IN";
+          echo "Error occured".mysqli_error();
         }
+        header('Refresh:1 , url = ../html/sitelist.php');
+      }
+      else{
+        echo "NOT Logged IN";
+      }
     }
     else{
-        echo "Somthing is missing";
+      echo "Somthing is missing";
     }
-   
+
 }
 
 
